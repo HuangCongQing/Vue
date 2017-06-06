@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+// console.log(Vue)
 
 // 我直接写模板，就不引入组件了
 // 基础
@@ -66,10 +67,10 @@ export default new Router({
     // 动态路径参数 以冒号开头
     { path: '/user/:id',
       name: 'user',
-      component: User,
-      beforeEnter: (to, from, next) => {
-        // next(false)
-      }
+      component: User
+      // beforeEnter: (to, from, next) => {
+      //   // next(false)
+      // }
     },
     // 嵌套路由
     { path: '/user1/:id',
@@ -103,17 +104,58 @@ export default new Router({
     {
       path: '/导航钩子',
       component: MU,
-      beforeEnter: (to, from, next) => {
-        // next(false),
-        console.log(to)
-        console.log(from)
-        console.log(next)
-        next('/')// 指向首页
+      beforeEnter: (to1, from, next) => {
+        next('/Huang')
+        console.log('asdf')
+        next('/Hu')
+        next(false)
+        next('/Tan')
+        // to.path = "/Hu"
+        // console.log(to1)
+        // console.log(from)
+        // console.log(next)
+        // next('/Huang')// 指向首页
+        // console.log(next)
       }
     }
-  ],
+  ]
   // 滚动行为
-  scrollBehavior (to, from, savedPosition) {
-    // return 期望滚动到哪个的位置
-  }
+  // scrollBehavior (to, from, savedPosition) {
+  //   // return 期望滚动到哪个的位置
+  //   console.log(to)
+  //   console.log(from)
+  //   console.log(savedPosition)
+  //   if (savedPosition) {
+  //     // savedPosition is only available for popstate navigations.
+  //     return savedPosition
+  //   } else {
+  //     const position = {}
+  //     // new navigation.
+  //     // scroll to anchor by returning the selector
+  //     if (to.hash) {
+  //       position.selector = to.hash
+  //     }
+  //     // check if any matched route config has meta that requires scrolling to top
+  //     if (to.matched.some(m => m.meta.scrollToTop)) {
+  //       // cords will be used if no selector is provided,
+  //       // or if the selector didn't match any element.
+  //       position.x = 0
+  //       position.y = 0
+  //     }
+  //     // if the returned position is falsy or an empty object,
+  //     // will retain current scroll position.
+  //     return position
+  //   }
+  // }
 })
+// export default VueRouter
+// VueRouter.beforeEach((to, from, next) => {
+//   console.log(from)
+//   next('/Mu')
+// })
+// VueRouter.beforeEach((to, from, next) => {
+//   console.log('asdfg111111')
+// })
+// VueRouter.beforeEach((to, from, next) => {
+//   console.log('asdfghhhhhhhhhh')
+// })

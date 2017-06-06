@@ -4,7 +4,7 @@
       <!-- 使用 router-link 组件来导航. -->
       <!-- 通过传入 `to` 属性指定链接. -->
       <!-- <router-link> 默认会被渲染成一个 `<a>` 标签 -->
-      <router-link to="/Hu">找胡颖</router-link>
+      <router-link tag='div' to="/Hu">找胡颖</router-link>
       <router-link to="/Huang">找重庆</router-link>
 
       <!-- 动态路由显示 -->
@@ -27,7 +27,7 @@
     </p>
     <!-- 重定向和命名 -->
     <p>
-      <router-link to="重定向">重定向回重庆</router-link>
+      <router-link to="/重定向">重定向回重庆</router-link>
     </p>
     <!-- 导航钩子 -->
     <p>导航钩子
@@ -36,6 +36,10 @@
     <!-- 路由出口 -->
    <!-- 路由匹配到的组件将渲染在这里 -->
    <!-- 模板里引入router-view -->
+    
+
+
+   <h1>下面是router-vue渲染的内容</h1>
     <transition name="fade">
     <router-view class="view one"></router-view>
     </transition>
@@ -73,5 +77,8 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+.router-link-active{
+  color:red;
 }
 </style>
